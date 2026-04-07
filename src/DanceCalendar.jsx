@@ -1,4 +1,15 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
+
+const safeUrl = (u) => /^https?:\/\//i.test(u) ? u : '#';
+// Derive trip cost display from costs data so it stays in sync with the breakdown.
+// tType:'local' = no transport/hotel cost; 'drive' or 'fly' = show full subtotal.
+const tripDisplay = (e) => {
+  const c = e.costs;
+  if (!c) return e.travel;
+  if (c.tType === 'local') return 'Local';
+  if (c.tType === 'fly') return `~$${c.subtotal} (fly)`;
+  return c.subtotal > 0 ? `~$${c.subtotal} drive` : 'Driveable';
+};
 
 // ─── ATTENDANCE ────────────────────────────────────────────────────────────────
 const ATT = [
@@ -235,7 +246,7 @@ const EVENTS = [
     daysOff:2, restDay:false, ptoTotal:2, ptoNote:"Thu 26, Fri 27 (Newton MA — local, no rest day needed)",
     conflicts:[8,9],
     costs:{
-      transport:0, tType:"local", tNote:"Local — drive from Woburn, no tolls",
+      transport:0, tType:"local", tNote:"Local — drive from Boston area, no tolls",
       hotelNights:0, hotelRate:0, hotel:0,
       foodPerDay:70, foodDays:3, food:210,
       localXport:10, localNote:"Gas money only",
@@ -260,7 +271,7 @@ const EVENTS = [
     daysOff:1, restDay:false, ptoTotal:1, ptoNote:"Fri 10 only (ends Saturday — local, no rest day)",
     conflicts:[],
     costs:{
-      transport:0, tType:"local", tNote:"Local — drive from Woburn",
+      transport:0, tType:"local", tNote:"Local — drive from Boston area",
       hotelNights:0, hotelRate:0, hotel:0,
       foodPerDay:70, foodDays:1, food:70,
       localXport:10, localNote:"Gas only",
@@ -421,7 +432,7 @@ const EVENTS = [
     daysOff:6, restDay:false, ptoTotal:6, ptoNote:"Thu 25, Fri 26, Mon 29, Tue 30, Wed Jul 1, Thu Jul 2 (local — no rest day)",
     conflicts:[17,19,20,21],
     costs:{
-      transport:15, tType:"drive", tNote:"~45 min drive Woburn→Easton MA (Stonehill College)",
+      transport:15, tType:"drive", tNote:"~45 min drive from Boston area→Easton MA (Stonehill College)",
       hotelNights:0, hotelRate:0, hotel:0,
       foodPerDay:0, foodDays:0, food:0,
       localXport:0, localNote:"Residential camp — housing + all meals included in pass",
@@ -627,10 +638,10 @@ const EVENTS = [
     workshop:4, social:4, comp:4, ageMatch:3, levelMatch:3,
     ageNote:"Regional NE WCS; good 28–48 core but NASDE/Newcomer draws attract broader age range",
     levelNote:"All levels from Newcomer to Champion; good advanced floor during comps but mixed social",
-    daysOff:3, restDay:false, ptoTotal:3, ptoNote:"Thu 20, Fri 21, Mon 24 (Woburn MA — local, no rest day)",
+    daysOff:3, restDay:false, ptoTotal:3, ptoNote:"Thu 20, Fri 21, Mon 24 (Boston area — local, no rest day)",
     conflicts:[24,26,28,29],
     costs:{
-      transport:0, tType:"local", tNote:"Literally home — Crowne Plaza is in Woburn",
+      transport:0, tType:"local", tNote:"Local — venue is in the Boston area",
       hotelNights:0, hotelRate:0, hotel:0,
       foodPerDay:70, foodDays:4, food:280,
       localXport:0, localNote:"Walk or 5-min drive",
@@ -653,7 +664,7 @@ const EVENTS = [
     daysOff:4, restDay:false, ptoTotal:4, ptoNote:"Wed 26, Thu 27, Fri 28, Mon 31 (ends Monday; Hebron NH ~2 hrs — no rest day)",
     conflicts:[24,27,29,30],
     costs:{
-      transport:31, tType:"drive", tNote:"~2 hr drive Woburn→Hebron NH, gas (no tolls) RT",
+      transport:31, tType:"drive", tNote:"~2 hr drive from Boston area→Hebron NH, gas (no tolls) RT",
       hotelNights:0, hotelRate:0, hotel:0,
       foodPerDay:0, foodDays:0, food:0,
       localXport:0, localNote:"Camp Wicosuta all-inclusive",
@@ -769,7 +780,7 @@ const EVENTS = [
     daysOff:1, restDay:false, ptoTotal:1, ptoNote:"~Fri (dates TBD; Cambridge/Boston — local, no rest day)",
     conflicts:[31,32,49],
     costs:{
-      transport:0, tType:"local", tNote:"Local — Cambridge is 15 min from Woburn",
+      transport:0, tType:"local", tNote:"Local — Cambridge is nearby",
       hotelNights:0, hotelRate:0, hotel:0,
       foodPerDay:70, foodDays:1, food:70,
       localXport:10, localNote:"Gas + Cambridge street parking",
@@ -930,7 +941,7 @@ const EVENTS = [
     daysOff:2, restDay:false, ptoTotal:2, ptoNote:"Thu 12, Fri 13 (Warwick RI ~1.5 hrs — local enough, no rest day needed)",
     conflicts:[39,41,42,44,48],
     costs:{
-      transport:17, tType:"drive", tNote:"~1.5 hr drive Woburn→Warwick RI, gas + tolls RT",
+      transport:17, tType:"drive", tNote:"~1.5 hr drive from Boston area→Warwick RI, gas + tolls RT",
       hotelNights:3, hotelRate:130, hotel:390,
       foodPerDay:60, foodDays:3, food:180,
       localXport:0, localNote:"Hotel convention, all in-venue",
@@ -1111,16 +1122,16 @@ const EVENTS = [
     workshop:3, social:4, comp:3, ageMatch:3, levelMatch:3,
     ageNote:"Local NE WCS NYE event; fun mixed crowd; NYE format broadens demographic",
     levelNote:"Regional level; solid local dancers but not a destination for elite floor density",
-    daysOff:1, restDay:false, ptoTotal:1, ptoNote:"Thu 31 (Jan 1 = New Year's holiday; multi-night event Dec 31–Jan 3 — hotel stay needed at ~50 min from Woburn)",
+    daysOff:1, restDay:false, ptoTotal:1, ptoNote:"Thu 31 (Jan 1 = New Year's holiday; multi-night event Dec 31–Jan 3 — hotel stay needed at ~50 min from Boston area)",
     conflicts:[45,46],
     costs:{
-      transport:14, tType:"drive", tNote:"~50 min drive Woburn→Mansfield, gas RT",
+      transport:14, tType:"drive", tNote:"~50 min drive from Boston area→Mansfield, gas RT",
       hotelNights:3, hotelRate:140, hotel:420,
       foodPerDay:60, foodDays:3, food:180,
       localXport:0, localNote:"Convention hotel — venue is on-site or walking distance",
       passMin:70, passMax:90,
       subtotal:614, totalMin:684, totalMax:704,
-      eventNote:"Mansfield is ~50 min from Woburn — over the no-hotel threshold. Foxborough/Mansfield area hotels run $130–150/night. NYE rates may be higher — book early.",
+      eventNote:"Mansfield is ~50 min from Boston area — over the no-hotel threshold. Foxborough/Mansfield area hotels run $130–150/night. NYE rates may be higher — book early.",
     },
   },
 
@@ -1325,7 +1336,7 @@ const EVENTS = [
     daysOff:2, restDay:false, ptoTotal:2, ptoNote:"~Thu, Fri (Newton MA — local, no rest day needed)",
     conflicts:[],
     costs:{
-      transport:0, tType:"local", tNote:"Local — drive from Woburn (est.)",
+      transport:0, tType:"local", tNote:"Local — drive from Boston area (est.)",
       hotelNights:0, hotelRate:0, hotel:0,
       foodPerDay:72, foodDays:3, food:216,
       localXport:10, localNote:"Gas only",
@@ -1642,7 +1653,7 @@ function EventCard({event, expanded, onToggle, attendance, onAttendance}) {
           <div className={`text-xs p-2 rounded border ${TS[event.ticketStatus]?.bg} ${TS[event.ticketStatus]?.text} ${TS[event.ticketStatus]?.border}`}>
             🎟 {event.ticketNote}
           </div>
-          <a href={event.url} target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()} className={`text-xs underline ${c.text}`}>🔗 Official Website →</a>
+          <a href={safeUrl(event.url)} target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()} className={`text-xs underline ${c.text}`}>🔗 Official Website →</a>
         </div>
       )}
     </div>
@@ -1693,12 +1704,12 @@ function MiniRow({event, attendance, onAttendance}) {
           </div>
           <p className="text-xs text-gray-500">🎟 {event.ticketNote}</p>
           <p className="text-xs text-gray-400">
-            🚗/✈️ <span className="text-white">{event.travel}</span>
+            🚗/✈️ <span className="text-white">{tripDisplay(event)}</span>
             {" · "}
             <span className="text-gray-500">Pass:</span> <span className="text-gray-300">{event.price}</span>
             {event.costs && <span className="text-yellow-400 font-bold"> · Total: {event.costs.totalMin===event.costs.totalMax?`$${event.costs.totalMin}`:`$${event.costs.totalMin}–$${event.costs.totalMax}`}</span>}
           </p>
-          <a href={event.url} target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()} className={`text-xs ${c.text} underline`}>Website →</a>
+          <a href={safeUrl(event.url)} target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()} className={`text-xs ${c.text} underline`}>Website →</a>
         </div>
       )}
     </div>
@@ -1740,7 +1751,7 @@ function CalendarView({events, attendance, onAttendance}) {
               <span className="text-xs text-gray-500">{evts.length} event{evts.length>1?"s":""}</span>
             </div>
             <div className="space-y-2">
-              {evts.sort((a,b)=>a.day-b.day).map(e=><MiniRow key={e.id} event={e} attendance={attendance[e.id]} onAttendance={onAttendance}/>)}
+              {[...evts].sort((a,b)=>a.day-b.day).map(e=><MiniRow key={e.id} event={e} attendance={attendance[e.id]} onAttendance={onAttendance}/>)}
             </div>
           </div>
         );
@@ -1810,12 +1821,12 @@ function TopPicksView({events, attendance, onAttendance}) {
                   <p className="text-xs text-gray-500 italic mb-2">🗓 {event.ptoNote}</p>
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="text-xs text-gray-400">
-                      <span className="text-gray-500">Pass:</span> {event.price} · {event.travel}
+                      <span className="text-gray-500">Pass:</span> {event.price} · {tripDisplay(event)}
                       {event.costs && <span className="text-yellow-400 font-bold"> · Total: {event.costs.totalMin===event.costs.totalMax?`$${event.costs.totalMin}`:`$${event.costs.totalMin}–$${event.costs.totalMax}`}</span>}
                     </span>
                     <div className="ml-auto flex items-center gap-2">
                       <AttSelect eventId={event.id} value={attendance[event.id]} onChange={onAttendance}/>
-                      <a href={event.url} target="_blank" rel="noopener noreferrer" className={`text-xs ${c.text} underline`}>Site →</a>
+                      <a href={safeUrl(event.url)} target="_blank" rel="noopener noreferrer" className={`text-xs ${c.text} underline`}>Site →</a>
                     </div>
                   </div>
                 </div>
@@ -1837,11 +1848,11 @@ function ConflictsView({allEvents, attendance, onAttendance}) {
         <p className="font-semibold text-white mb-1">⚔️ Schedule Conflicts — Upcoming Events</p>
         <p className="text-xs text-gray-500">Each group requires a choice. Vibe scores shown to help you decide.</p>
       </div>
-      {futureGroups.map((group,i)=>{
+      {futureGroups.map((group)=>{
         const evts = group.ids.map(id=>eventMap[id]).filter(e=>e&&!e.past);
         if (evts.length<2) return null;
         return (
-          <div key={i} className="rounded-xl border border-red-800/60 bg-red-950/30 p-4">
+          <div key={group.label} className="rounded-xl border border-red-800/60 bg-red-950/30 p-4">
             <h3 className="text-sm font-bold text-red-300 mb-3">{group.label}</h3>
             <div className="space-y-2">
               {evts.map(event=>{
@@ -1915,7 +1926,7 @@ function TicketTracker({events, attendance}) {
                       </div>
                       <div className="text-xs text-gray-500 mt-0.5">{e.ticketNote}</div>
                     </div>
-                    <a href={e.url} target="_blank" rel="noopener noreferrer" className={`text-xs ${c.text} underline shrink-0`}>→</a>
+                    <a href={safeUrl(e.url)} target="_blank" rel="noopener noreferrer" className={`text-xs ${c.text} underline shrink-0`}>→</a>
                   </div>
                 );
               })}
@@ -1971,7 +1982,6 @@ function PastView({events, attendance, onAttendance}) {
 
 function BudgetView({events, attendance}) {
   const [sortBy, setSortBy] = useState("total");
-  const [groupBy, setGroupBy] = useState("none");
   const upcoming = events.filter(e=>!e.past && e.costs);
 
   const sorted = [...upcoming].sort((a,b) => {
@@ -2051,11 +2061,10 @@ function BudgetView({events, attendance}) {
 
       {/* Per-event cost table */}
       <div className="space-y-2">
-        {sorted.map((event,i) => {
+        {sorted.map((event) => {
           const c = SC[event.style]||SC.Multi;
           const co = event.costs;
           const att = attendance[event.id];
-          const score = event.social+event.ageMatch+event.levelMatch;
           const tIcon = co.tType==="local"?"🏠":co.tType==="drive"?"🚗":"✈️";
           const iscamp = co.hotel===0 && co.food===0 && co.campIncludes;
           return (
@@ -2158,12 +2167,14 @@ export default function DanceCalendar() {
   },[]);
 
   // Write-through to localStorage on every change
-  const handleAttendance = (id, val) => {
-    const next = {...attendance};
-    if (val) next[id] = val; else delete next[id];
-    setAttendance(next);
-    try { localStorage.setItem("dance-att-v2", JSON.stringify(next)); } catch(_) {}
-  };
+  const handleAttendance = useCallback((id, val) => {
+    setAttendance(prev => {
+      const next = {...prev};
+      if (val) next[id] = val; else delete next[id];
+      try { localStorage.setItem("dance-att-v2", JSON.stringify(next)); } catch(_) {}
+      return next;
+    });
+  }, []);
 
   // ── Export: download attendance.json for committing to git ──
   const handleExport = () => {
@@ -2189,7 +2200,7 @@ export default function DanceCalendar() {
     a.href = url;
     a.download = "attendance.json";
     a.click();
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url), 100);
     setSaveStatus("saved");
     setTimeout(() => setSaveStatus(null), 3000);
   };
@@ -2202,10 +2213,24 @@ export default function DanceCalendar() {
     reader.onload = (ev) => {
       try {
         const parsed = JSON.parse(ev.target.result);
-        // Support both v2 format (with metadata) and raw {id: status} format
-        const att = parsed.version === 2
-          ? Object.fromEntries(Object.entries(parsed.attendance).map(([k,v]) => [k, v.status]))
-          : parsed;
+        const VALID = new Set(ATT.map(a => a.v));
+        // Support both v2 format (with metadata) and raw {id: status} format.
+        // parseInt keys: JSON keys are always strings; app uses numeric event ids.
+        // Filter invalid entries rather than rejecting the whole file.
+        let att;
+        if (parsed.version === 2) {
+          att = Object.fromEntries(
+            Object.entries(parsed.attendance)
+              .filter(([, v]) => VALID.has(v?.status))
+              .map(([k, v]) => [parseInt(k, 10), v.status])
+          );
+        } else {
+          att = Object.fromEntries(
+            Object.entries(parsed)
+              .filter(([, v]) => VALID.has(v))
+              .map(([k, v]) => [parseInt(k, 10), v])
+          );
+        }
         setAttendance(att);
         localStorage.setItem("dance-att-v2", JSON.stringify(att));
         setSaveStatus("imported");
