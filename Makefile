@@ -17,7 +17,7 @@ install:
 	npm install
 
 dev:
-	npm run dev
+	npm run dev -- --open
 
 build:
 	npm run build
