@@ -281,7 +281,7 @@ const EVENTS = [
     },
   },
   {
-    id:12, year:2026, past:false,
+    id:12, year:2026, past:true,
     name:"DCLX (DC Lindy Exchange)", dates:"Apr 24–26", month:4, day:24,
     style:"Lindy", region:"Mid-Atlantic", city:"Glen Echo, MD",
     price:"$60–80", travel:"Driveable (~7.5 hrs)", driveable:true,
@@ -304,7 +304,7 @@ const EVENTS = [
     },
   },
   {
-    id:13, year:2026, past:false,
+    id:13, year:2026, past:true,
     name:"Jazz Town", dates:"May 14–17", month:5, day:14,
     style:"Lindy", region:"Mid-Atlantic", city:"Philadelphia / Baltimore, MD",
     price:"$15–25/dance", travel:"Driveable (~5.5 hrs)", driveable:true,
@@ -327,7 +327,7 @@ const EVENTS = [
     },
   },
   {
-    id:14, year:2026, past:false,
+    id:14, year:2026, past:true,
     name:"Canadian Swing Championships", dates:"May 15–18", month:5, day:15,
     style:"Multi", region:"Canada", city:"near Montréal, QC",
     price:"~$85 CAD+", travel:"Driveable (~5 hrs)", driveable:true,
@@ -350,7 +350,7 @@ const EVENTS = [
     },
   },
   {
-    id:15, year:2026, past:false,
+    id:15, year:2026, past:true,
     name:"Camp Jitterbug", dates:"May 22–25", month:5, day:22,
     style:"Lindy", region:"West Coast", city:"Seattle, WA",
     price:"$209–309", travel:"~$830 (fly)", driveable:false,
@@ -373,7 +373,7 @@ const EVENTS = [
     },
   },
   {
-    id:16, year:2026, past:false,
+    id:16, year:2026, past:true,
     name:"Jack & Jill O'Rama", dates:"Jun 4–8", month:6, day:4,
     style:"WCS", region:"West Coast", city:"Garden Grove, CA",
     price:"$190", travel:"~$800 (fly)", driveable:false,
@@ -396,7 +396,7 @@ const EVENTS = [
     },
   },
   {
-    id:17, year:2026, past:false,
+    id:17, year:2026, past:true,
     name:"Liberty Swing Dance Championships", dates:"Jun 25–28", month:6, day:25,
     style:"WCS", region:"Mid-Atlantic", city:"New Brunswick, NJ",
     price:"$225", travel:"Driveable (~4.5 hrs)", driveable:true,
@@ -423,7 +423,7 @@ const EVENTS = [
     name:"Beantown Camp", dates:"Jun 25–Jul 2", month:6, day:25,
     style:"Lindy", region:"New England", city:"Easton, MA",
     price:"$663–$843", travel:"Driveable (<1 hr)", driveable:true,
-    ticketStatus:"Open", ticketNote:"Registration opened April 4, 2026 at 1pm EDT. Full week with housing: $663–$843 depending on room type. First-timers: $470–$531. Day/dance passes also available from $263. Stonehill College, Easton MA.",
+    ticketStatus:"Open", ticketNote:"Discount prices through May 31; full prices kick in June. Full week with housing: $663–$843 depending on room type. First-timers: $470–$531. Day/dance passes from $263. Stonehill College, Easton MA.",
     url:"https://www.beantowncamp.com", type:"Camp",
     description:"28th year at new venue Stonehill College, Easton MA. All-inclusive residential camp. 5 nights of live music. Special guests Sugar Sullivan and Barbara Billups. Solo Jazz and Mix & Match Mashup competitions. Late night Blues dance.",
     workshop:5, social:5, comp:3, ageMatch:4, levelMatch:4,
@@ -443,7 +443,7 @@ const EVENTS = [
     },
   },
   {
-    id:19, year:2026, past:false,
+    id:19, year:2026, past:true,
     name:"Oxford Lindy Exchange", dates:"Jun 12–14", month:6, day:12,
     style:"Lindy", region:"Europe", city:"Oxford, UK",
     price:"£88–118 (~$110–148)", travel:"~$1,000 (fly)", driveable:false,
@@ -492,8 +492,8 @@ const EVENTS = [
     id:21, year:2026, past:false,
     name:"ILHC World Finals", dates:"Jul 2–5", month:7, day:2,
     style:"Lindy", region:"Canada", city:"Montréal, QC",
-    price:"$287–360", travel:"Driveable (~5 hrs)", driveable:true,
-    ticketStatus:"Open", ticketNote:"Current tier Lot 3 at $399 CAD (~$287 USD) through Apr 30. Final tier $419 CAD (~$302 USD) after. Patron $500 CAD (~$360 USD). Lot 1 and 2 closed. Dance Pass on hold. NEW: Montréal 2026 coinciding with Jazz Festival.",
+    price:"$302–360", travel:"Driveable (~5 hrs)", driveable:true,
+    ticketStatus:"Sold Out", ticketNote:"Full passes SOLD OUT. Competition registration remains open; dance passes on hold — may release if event doesn't fully sell. Event starts today.",
     url:"https://ilhc.com", type:"Competition",
     description:"The premier international Lindy Hop competition. NEW: Montréal 2026, coinciding with Montréal Jazz Festival. Divisions from Newcomer through Champion.",
     workshop:4, social:4, comp:5, ageMatch:4, levelMatch:5,
@@ -506,8 +506,8 @@ const EVENTS = [
       hotelNights:3, hotelRate:145, hotel:435,
       foodPerDay:65, foodDays:3, food:195,
       localXport:30, localNote:"Montréal metro + Uber to venue",
-      passMin:287, passMax:360,
-      subtotal:750, totalMin:1037, totalMax:1110,
+      passMin:302, passMax:360,
+      subtotal:750, totalMin:1052, totalMax:1110,
       eventNote:"ILHC is the priciest pass in the guide; Jazz Fest overlap means hotels book fast — plan early",
     },
   },
@@ -585,22 +585,22 @@ const EVENTS = [
     id:25, year:2026, past:false,
     name:"Swing Fling", dates:"Aug 6–9", month:8, day:6,
     style:"WCS", region:"Mid-Atlantic", city:"Dulles, VA",
-    price:"$200–225", travel:"Driveable (~7.5 hrs)", driveable:true,
-    ticketStatus:"TBD", ticketNote:"Dance Jam Productions (MADjam team). 2026 pricing TBA.",
+    price:"$205", travel:"Driveable (~7.5 hrs)", driveable:true,
+    ticketStatus:"Open", ticketNote:"EZ Pass $205 standard (early bird $199 through Jul 31). Dance Jam Productions (MADjam team).",
     url:"https://dancejamproductions.com", type:"Convention",
     description:"Produced by Dance Jam Productions (MADjam team). Full WSDC J&J, Strictly, Rising Star. Summer DC-area WCS event.",
     workshop:4, social:4, comp:4, ageMatch:4, levelMatch:4,
     ageNote:"DC WCS comp crowd; same demographic as MADjam, 28–50; summer timing aids dedicated hobbyists",
     levelNote:"MADjam-adjacent community shows up; solid Adv/All-Star floor density",
     daysOff:2, restDay:true, ptoTotal:3, ptoNote:"Thu 6, Fri 7 + Mon rest day (~7.5 hr drive back Sunday from Dulles)",
-    conflicts:[26],
+    conflicts:[26,50],
     costs:{
       transport:136, tType:"drive", tNote:"~7.5 hr drive, gas + tolls RT (I-95)",
       hotelNights:3, hotelRate:185, hotel:555,
       foodPerDay:70, foodDays:3, food:210,
       localXport:20, localNote:"Same DJP hotel block as MADjam (Hyatt Regency Dulles)",
-      passMin:200, passMax:225,
-      subtotal:921, totalMin:1121, totalMax:1146,
+      passMin:205, passMax:205,
+      subtotal:921, totalMin:1126, totalMax:1126,
       eventNote:"Book DJP event hotel block; same venue as DCSX — potential multi-event deal",
     },
   },
@@ -616,7 +616,7 @@ const EVENTS = [
     ageNote:"NYC blues community skews 27–44; city demographic naturally mature and culturally engaged",
     levelNote:"Explicitly intermediate-focused programming; Int/Adv dominant",
     daysOff:1, restDay:false, ptoTotal:1, ptoNote:"Mon 17 only (event Sat–Mon; Mon is return drive day ~4 hrs NYC → Boston)",
-    conflicts:[25,27],
+    conflicts:[25,27,50],
     costs:{
       transport:120, tType:"drive", tNote:"~4 hr drive, gas + tolls + NYC parking RT",
       hotelNights:2, hotelRate:275, hotel:550,
@@ -624,7 +624,7 @@ const EVENTS = [
       localXport:30, localNote:"Subway MetroCard; park outer Brooklyn to avoid Manhattan rates",
       passMin:175, passMax:175,
       subtotal:860, totalMin:1035, totalMax:1035,
-      eventNote:"NYC weekend hotels are brutal; outer Brooklyn saves $60-80/night vs Manhattan",
+      eventNote:"NYC weekend hotels are brutal; outer Brooklyn saves $60-80/night vs Manhattan. Online registration now limited; door tickets available.",
     },
   },
   {
@@ -732,7 +732,7 @@ const EVENTS = [
     ageNote:"Denver swing community is broad; Fusion crossover brings adjacent dance crowd; mixed ages",
     levelNote:"22yr track record brings reliable Int/Adv showing; Fusion overlap introduces mixed skill floor",
     daysOff:1, restDay:true, ptoTotal:2, ptoNote:"Fri 18 + Mon rest day (flight from Denver)",
-    conflicts:[32,33],
+    conflicts:[33],
     costs:{
       transport:240, tType:"fly", tNote:"BOS→DEN RT economy",
       hotelNights:2, hotelRate:155, hotel:310,
@@ -741,29 +741,6 @@ const EVENTS = [
       passMin:199, passMax:349,
       subtotal:720, totalMin:919, totalMax:1069,
       eventNote:"Denver has good airport transit; all-access pass covers Hot Night Fusion + Jazz Festival too",
-    },
-  },
-  {
-    id:32, year:2026, past:false,
-    name:"Rhythm Shuffle", dates:"Sep 18–20", month:9, day:18,
-    style:"Lindy", region:"Northeast", city:"Buffalo, NY",
-    price:"$100–175", travel:"Driveable (~7 hrs)", driveable:true,
-    ticketStatus:"TBD", ticketNote:"$175 weekend pass; $100 single track. 2026 instructors TBA.",
-    url:"https://swingbuffalo.com", type:"Weekend Event",
-    description:"Organized by Swing Buffalo. Balboa and Lindy focus. 2025 instructors included Sylvia Sykes & Nick Williams.",
-    workshop:4, social:3, comp:0, ageMatch:3, levelMatch:3,
-    ageNote:"Regional Buffalo scene; decent community base but smaller regional event limits demographic control",
-    levelNote:"Balboa focus skews toward experienced niche dancers; Lindy floor more mixed",
-    daysOff:1, restDay:true, ptoTotal:2, ptoNote:"Fri 18 + Mon rest day (~7 hr drive back from Buffalo Sunday)",
-    conflicts:[31,33],
-    costs:{
-      transport:128, tType:"drive", tNote:"~7 hr drive Boston→Buffalo, gas + tolls RT",
-      hotelNights:2, hotelRate:105, hotel:210,
-      foodPerDay:55, foodDays:2, food:110,
-      localXport:0, localNote:"Walkable downtown Buffalo venue",
-      passMin:100, passMax:175,
-      subtotal:448, totalMin:548, totalMax:623,
-      eventNote:"Buffalo is the cheapest driveable destination; hotels reliably under $110/night",
     },
   },
   {
@@ -778,7 +755,7 @@ const EVENTS = [
     ageNote:"Boston local scene; city demographics include college dancers; 28–45 core but variable",
     levelNote:"Exchange format helps; local NE community is strong but spread across skill levels",
     daysOff:1, restDay:false, ptoTotal:1, ptoNote:"~Fri (dates TBD; Cambridge/Boston — local, no rest day)",
-    conflicts:[31,32,49],
+    conflicts:[31,49],
     costs:{
       transport:0, tType:"local", tNote:"Local — Cambridge is nearby",
       hotelNights:0, hotelRate:0, hotel:0,
@@ -793,8 +770,8 @@ const EVENTS = [
     id:34, year:2026, past:false,
     name:"Boogie by the Bay", dates:"Oct 8–11", month:10, day:8,
     style:"WCS", region:"West Coast", city:"Burlingame, CA",
-    price:"$170–205", travel:"~$860 (fly)", driveable:false,
-    ticketStatus:"Open", ticketNote:"$205 standard ($170 Champion, $185 NextGen). Jordan Frisbee & Tatiana Mollman intensive.",
+    price:"$205–230", travel:"~$860 (fly)", driveable:false,
+    ticketStatus:"Open", ticketNote:"Adult standard $205 (early bird $180 through Jul 15); door $230. Champion $170, NextGen $185. Jordan Frisbee & Tatiana Mollman intensive.",
     url:"https://www.boogiebythebaydance.com", type:"Convention",
     description:"One of the most prestigious WCS events — running 30+ years. 1,500+ dancers, 50+ workshops. Jordan Frisbee & Tatiana Mollman intensive. Saturday red carpet dinner.",
     workshop:5, social:4, comp:5, ageMatch:4, levelMatch:5,
@@ -807,8 +784,8 @@ const EVENTS = [
       hotelNights:4, hotelRate:190, hotel:760,
       foodPerDay:75, foodDays:4, food:300,
       localXport:60, localNote:"BART SFO→Millbrae; event hotel area walkable",
-      passMin:170, passMax:205,
-      subtotal:1500, totalMin:1670, totalMax:1705,
+      passMin:205, passMax:230,
+      subtotal:1500, totalMin:1705, totalMax:1730,
       eventNote:"SFO area (Burlingame) has airport hotels with free shuttles — solid value",
     },
   },
@@ -839,8 +816,8 @@ const EVENTS = [
     id:36, year:2026, past:false,
     name:"Flying Home", dates:"Oct 23–25", month:10, day:23,
     style:"Lindy", region:"South", city:"Carrboro, NC",
-    price:"$100–175", travel:"~$610 (fly)", driveable:false,
-    ticketStatus:"Open", ticketNote:"Dates confirmed Oct 23–25. Registration live via flyinghomenc.com. 2026 tier pricing not yet published on vendor site. Hosted by Triangle Swing Dance Society.",
+    price:"$175–205", travel:"~$610 (fly)", driveable:false,
+    ticketStatus:"Open", ticketNote:"Tiers: Pre-Boarding $155 SOLD OUT. Early Boarding $175 (3 remaining). General $190. Door $205. Hosted by Triangle Swing Dance Society.",
     url:"https://flyinghomenc.com", type:"Weekend Event",
     description:"World-class live bands. Legends of Lindy Hop including David 'Butts' Carne. Two Mix & Match competitions plus fun late-night contests.",
     workshop:4, social:4, comp:3, ageMatch:3, levelMatch:3,
@@ -853,8 +830,8 @@ const EVENTS = [
       hotelNights:2, hotelRate:145, hotel:290,
       foodPerDay:60, foodDays:2, food:120,
       localXport:40, localNote:"Uber RDU to Carrboro/Chapel Hill area",
-      passMin:100, passMax:175,
-      subtotal:630, totalMin:730, totalMax:805,
+      passMin:175, passMax:205,
+      subtotal:630, totalMin:805, totalMax:835,
       eventNote:"Carrboro is adjacent to Chapel Hill; affordable NC hotel market",
     },
   },
@@ -863,7 +840,7 @@ const EVENTS = [
     name:"New York Lindy Exchange", dates:"Oct 9–11", month:10, day:9,
     style:"Lindy", region:"Northeast", city:"New York City, NY",
     price:"$99–520", travel:"Driveable (~4 hrs)", driveable:true,
-    ticketStatus:"TBD", ticketNote:"$349–520 full pass; Party Pass $99–109. 4th edition. Conflicts with Boogie by the Bay — same weekend.",
+    ticketStatus:"Open", ticketNote:"Full Lindy Pass $349 through Jul 31 (standard tier likely higher after). Party Pass $99 through Jul 31. 4th edition. Conflicts with Boogie by the Bay — same weekend.",
     url:"https://www.nylindy.com", type:"Exchange",
     description:"4th edition. 100% NYC-produced. Historic venues. Gordon Webster + Eyal Vilner Big Band. Dandy Wellington as emcee. Harlem tours.",
     workshop:4, social:5, comp:2, ageMatch:4, levelMatch:4,
@@ -876,8 +853,8 @@ const EVENTS = [
       hotelNights:2, hotelRate:275, hotel:550,
       foodPerDay:80, foodDays:2, food:160,
       localXport:30, localNote:"Subway; park outer Brooklyn to save $50+/day vs Manhattan",
-      passMin:99, passMax:520,
-      subtotal:860, totalMin:959, totalMax:1380,
+      passMin:99, passMax:349,
+      subtotal:860, totalMin:959, totalMax:1209,
       eventNote:"Party Pass ($99) vs Full Pass ($520) is a huge cost difference; full pass is the real experience",
     },
   },
@@ -932,7 +909,7 @@ const EVENTS = [
     name:"Northeast Swing Classic", dates:"Nov 12–15", month:11, day:12,
     style:"WCS", region:"New England", city:"Warwick, RI",
     price:"$180–210", travel:"Driveable (~1.5 hrs)", driveable:true,
-    ticketStatus:"TBD", ticketNote:"WSDC points event, 40+ workshops. ~1.5 hrs from Boston. 2026 pricing TBD.",
+    ticketStatus:"Open", ticketNote:"Registration open. WSDC points event, 40+ workshops. ~1.5 hrs from Boston. 2026 tier pricing not yet surfaced on vendor site; ~$180–210 prior-year reference.",
     url:"https://www.swingplanit.com", type:"Convention",
     description:"WSDC Points event. 40+ workshops. Thursday pre-party, 4 themed parties, late-night dancing in two rooms. Newcomer weekend pass available.",
     workshop:4, social:4, comp:4, ageMatch:3, levelMatch:3,
@@ -977,8 +954,8 @@ const EVENTS = [
     id:42, year:2026, past:false,
     name:"Stompology", dates:"Nov 20–22", month:11, day:20,
     style:"Lindy", region:"Northeast", city:"Rochester, NY",
-    price:"TBD", travel:"Driveable (~5.5 hrs)", driveable:true,
-    ticketStatus:"TBD", ticketNote:"Original solo jazz dance weekend (since 2006). Tiered pricing — earlier = cheaper. LaTasha Barnes, Viktor Lillard, Ursula Hicks.",
+    price:"$180–210", travel:"Driveable (~5.5 hrs)", driveable:true,
+    ticketStatus:"Open", ticketNote:"Online registration closed; door tickets available. All-In Pass tiers $180 / $190 / $200 / $210 by cohort. LaTasha Barnes, Viktor Lillard, Ursula Hicks.",
     url:"https://www.stompology.com", type:"Weekend Event",
     description:"The original solo jazz dance weekend (since 2006). LaTasha Barnes, Viktor Lillard, Ursula Hicks. Eyal Vilner Big Band live. Open and Advanced solo jazz competitions.",
     workshop:5, social:4, comp:4, ageMatch:4, levelMatch:5,
@@ -991,8 +968,8 @@ const EVENTS = [
       hotelNights:2, hotelRate:115, hotel:230,
       foodPerDay:60, foodDays:2, food:120,
       localXport:0, localNote:"Walkable venue area",
-      passMin:80, passMax:120,
-      subtotal:449, totalMin:529, totalMax:569,
+      passMin:180, passMax:210,
+      subtotal:449, totalMin:629, totalMax:659,
       eventNote:"Stompology is great value — Rochester is cheap and very driveable",
     },
   },
@@ -1000,8 +977,8 @@ const EVENTS = [
     id:43, year:2026, past:false,
     name:"The Open (WSDC World Championships)", dates:"Nov 25–29", month:11, day:25,
     style:"WCS", region:"West Coast", city:"Burbank, CA",
-    price:"$200–250", travel:"~$830 (fly)", driveable:false,
-    ticketStatus:"TBD", ticketNote:"$50,000+ in cash & prizes. The Opus trophy. Walk of Legends. Final NASDE tour stop.",
+    price:"$215–235", travel:"~$830 (fly)", driveable:false,
+    ticketStatus:"Open", ticketNote:"Reserved Seating $215 through Nov 22, $235 after. Competitor Weekend $175. $50,000+ in cash & prizes. The Opus trophy. Walk of Legends. Final NASDE tour stop.",
     url:"https://theopenswing.com", type:"Championship",
     description:"The most prestigious swing competition in the world (41+ years). $50,000+ in cash & prizes. The coveted Opus trophy. Walk of Legends inductions. Final NASDE tour stop.",
     workshop:4, social:4, comp:5, ageMatch:4, levelMatch:5,
@@ -1014,8 +991,8 @@ const EVENTS = [
       hotelNights:4, hotelRate:165, hotel:660,
       foodPerDay:75, foodDays:4, food:300,
       localXport:60, localNote:"Uber from Burbank Bob Hope Airport (~$20 to venue)",
-      passMin:200, passMax:250,
-      subtotal:1400, totalMin:1600, totalMax:1650,
+      passMin:215, passMax:235,
+      subtotal:1400, totalMin:1615, totalMax:1635,
       eventNote:"Thanksgiving week: flights spike 40-60% — book months early. BUR vs LAX saves ~1 hr + $40 Uber.",
     },
   },
@@ -1047,7 +1024,7 @@ const EVENTS = [
     name:"DC Swing eXperience (DCSX)", dates:"Nov 19–22", month:11, day:19,
     style:"WCS", region:"Mid-Atlantic", city:"Dulles, VA",
     price:"~$200–225", travel:"Driveable (~7.5 hrs)", driveable:true,
-    ticketStatus:"TBD", ticketNote:"Dance Jam Productions (MADjam/Swing Fling team). Hyatt Regency Dulles. ~1,000 dancers. 2026 pricing TBA.",
+    ticketStatus:"Open", ticketNote:"EZ Pass $225 standard (early bird $199 through Oct 31). Dance Jam Productions (MADjam/Swing Fling team). Hyatt Regency Dulles. ~1,000 dancers.",
     url:"https://dcswingexperience.com", type:"Convention",
     description:"Produced by the Dance Jam Productions team (MADjam, Swing Fling). All WSDC J&J divisions, Strictly, Rising Star. 7,500 sq ft hardwood floors. DC's November WCS event.",
     workshop:4, social:4, comp:4, ageMatch:4, levelMatch:4,
@@ -1069,8 +1046,8 @@ const EVENTS = [
     id:45, year:2026, past:false,
     name:"The Snowball", dates:"Dec 26–31", month:12, day:26,
     style:"Multi", region:"Europe", city:"Solna (Stockholm), Sweden",
-    price:"€390–420", travel:"~$1,030 (fly)", driveable:false,
-    ticketStatus:"TBD", ticketNote:"Registration opens Sep 1, 2026. 2026 tier pricing not yet published; prior-year reference €390–420 with NYE included. Skye & Frida, Naomi & Peter, Nils & Bianca, Chester Whitmore. Sells out every year.",
+    price:"~$225–460 (SEK)", travel:"~$1,030 (fly)", driveable:false,
+    ticketStatus:"TBD", ticketNote:"Registration opens Sep 1, 2026. Vendor pricing in SEK: Gold 4,900 SEK (~$460 USD), Silver 4,300–4,600 SEK (~$405–435), Bronze 2,400 SEK (~$225), Crystal 3,100 SEK (~$290). Skye & Frida, Naomi & Peter, Nils & Bianca, Chester Whitmore. Sells out every year.",
     url:"https://www.thesnowball.se", type:"Festival",
     description:"Europe's premier year-end swing event. 6 nights of dancing, 3 simultaneous floors, 5-day workshop, NYE party. Skye & Frida, Naomi & Peter, Nils & Bianca, Chester Whitmore.",
     workshop:5, social:5, comp:3, ageMatch:4, levelMatch:5,
@@ -1157,6 +1134,29 @@ const EVENTS = [
       passMin:350, passMax:500,
       subtotal:180, totalMin:530, totalMax:680,
       eventNote:"Dates TBD; NC flight is cheap. Pass price is the main cost.",
+    },
+  },
+  {
+    id:50, year:2026, past:false,
+    name:"New England Dance Festival", dates:"Aug 6–9", month:8, day:6,
+    style:"Multi", region:"New England", city:"Newton, MA",
+    price:"$200–300 (est.)", travel:"Driveable (<1 hr)", driveable:true,
+    ticketStatus:"Open", ticketNote:"WSDC Registry event. Three-room format: WCS, UCWDC Country, ballroom. Local Boston-area. 2026 tier pricing not surfaced on vendor landing page; estimate $200–300.",
+    url:"https://nedancefestival.com", type:"Convention",
+    description:"Boston-area multi-genre dance festival at the Marriott Newton. WSDC Registry WCS room, UCWDC Country room, and ballroom room run concurrently. Local event — minimal travel cost.",
+    workshop:3, social:3, comp:3, ageMatch:3, levelMatch:3,
+    ageNote:"Multi-genre Boston-area event; broad demographic across WCS, Country, ballroom rooms",
+    levelNote:"Three-room format dilutes WCS floor density; regional rather than national-tier draw",
+    daysOff:2, restDay:false, ptoTotal:2, ptoNote:"Thu 6, Fri 7 (local — no rest day)",
+    conflicts:[25,26],
+    costs:{
+      transport:0, tType:"local", tNote:"Local — Newton is ~25 min from Boston area",
+      hotelNights:0, hotelRate:0, hotel:0,
+      foodPerDay:50, foodDays:3, food:150,
+      localXport:10, localNote:"Gas + parking at Marriott Newton",
+      passMin:200, passMax:300,
+      subtotal:160, totalMin:360, totalMax:460,
+      eventNote:"Local event — minimal travel and lodging cost. Pricing estimated; vendor has not surfaced 2026 tier pricing.",
     },
   },
 
@@ -1281,7 +1281,7 @@ const EVENTS = [
     name:"MADjam 2027", dates:"Mar 4–7", month:3, day:4,
     style:"WCS", region:"Mid-Atlantic", city:"Reston, VA",
     price:"$225 (est.)", travel:"Driveable (~7.5 hrs)", driveable:true,
-    ticketStatus:"TBD", ticketNote:"Dates confirmed: Mar 4–7, 2027. Registration opens ~fall 2026. Same format and venue as previous years.",
+    ticketStatus:"Open", ticketNote:"Registration open. EZ Pass $225 confirmed (early-bird $199 expired Feb 20). Dates Mar 4–7, 2027. Same format and venue as previous years.",
     url:"https://www.atlanticdancejam.com", type:"Convention",
     description:"2027 edition of the World's Largest WCS Party. Tier 6 WSDC. Mar 4–7, 2027 dates confirmed. Same MADjam format, same Reston venue.",
     workshop:5, social:4, comp:5, ageMatch:4, levelMatch:5,
@@ -1345,6 +1345,29 @@ const EVENTS = [
       eventNote:"Estimated costs",
     },
   },
+  {
+    id:109, year:2027, past:false,
+    name:"Canadian Swing Championships 2027", dates:"May 22–24", month:5, day:22,
+    style:"Multi", region:"Canada", city:"near Montréal, QC",
+    price:"~$85 CAD+", travel:"Driveable (~5 hrs)", driveable:true,
+    ticketStatus:"TBD", ticketNote:"Dates confirmed May 22–24, 2027 on canadianswingchampionships.com. Registration not yet open.",
+    url:"https://www.canadianswingchampionships.com", type:"Convention",
+    description:"2027 edition of Canada's largest swing event. Competitions in 7+ styles including Lindy, WCS, Balboa, Blues, Boogie Woogie. 3+ rooms with live bands nightly.",
+    workshop:3, social:4, comp:4, ageMatch:3, levelMatch:4,
+    ageNote:"Competition event draws 25–50 focused crowd; broader than pure exchange but comp-motivated",
+    levelNote:"National championship caliber attracts strong Adv/All-Star competitors; social floors good",
+    daysOff:1, restDay:false, ptoTotal:1, ptoNote:"Fri 21 (May 22–24 is Fri–Sun; drive home Sunday, no rest day at ~5 hrs)",
+    conflicts:[],
+    costs:{
+      transport:93, tType:"drive", tNote:"~5 hr drive Boston→Montréal, gas + tolls RT (est. +3% vs 2026)",
+      hotelNights:2, hotelRate:150, hotel:300,
+      foodPerDay:67, foodDays:2, food:134,
+      localXport:20, localNote:"Montréal metro is excellent and cheap",
+      passMin:64, passMax:82,
+      subtotal:547, totalMin:611, totalMax:629,
+      eventNote:"Estimated costs based on 2026 +~3%. Vendor has not yet published 2027 pricing.",
+    },
+  },
 ];
 
 // Conflicts = events within 7 days of each other (overlap OR recovery window).
@@ -1355,20 +1378,21 @@ const CONFLICT_GROUPS = [
   { ids:[8,9,10],     y:2026, past:true,  label:"⚔️ Meet in Middle / River City / Boston Tea Party (Mar 26–29)" },
 
   // ── MAY ───────────────────────────────────────────────────────────────────
-  { ids:[13,14,15],   y:2026, past:false, label:"⚔️ May cluster: Jazz Town / Canadian Swing / Camp Jitterbug (May 14–25) — all within 5 days of each other" },
+  { ids:[13,14,15],   y:2026, past:true,  label:"⚔️ May cluster: Jazz Town / Canadian Swing / Camp Jitterbug (May 14–25) — all within 5 days of each other" },
 
   // ── JULY 4TH WINDOW ───────────────────────────────────────────────────────
   { ids:[17,18,20,21],y:2026, past:false, label:"⚔️ Liberty Swing / Beantown end Jun 28–Jul 2 → Wild Wild Westie / ILHC start Jul 2 (0–4 day gap)" },
   { ids:[20,21,22,23],y:2026, past:false, label:"⚔️ WWW / ILHC end Jul 5 → Herräng starts Jul 4 / Slow Dance Soirée Jul 10 (0–5 day gap)" },
 
   // ── AUGUST ────────────────────────────────────────────────────────────────
-  { ids:[25,26],      y:2026, past:false, label:"⚔️ Swing Fling ends Aug 9 → Express Track Blues starts Aug 15 (6-day gap)" },
+  { ids:[25,50],      y:2026, past:false, label:"⚔️ Swing Fling and New England Dance Festival overlap Aug 6–9 (same weekend)" },
+  { ids:[25,26,50],   y:2026, past:false, label:"⚔️ Swing Fling / NEDF end Aug 9 → Express Track Blues starts Aug 15 (6-day gap)" },
   { ids:[26,27],      y:2026, past:false, label:"⚔️ Express Track Blues ends Aug 17 → Summer Hummer starts Aug 20 (3-day gap)" },
   { ids:[27,28,29],   y:2026, past:false, label:"⚔️ Summer Hummer ends Aug 24 → Swing Out NH / Desert City start Aug 26–27 (2–3 day gap)" },
   { ids:[24,28,29,30],y:2026, past:false, label:"⚔️ Late Aug cluster: Uptown / Swing Out NH / Desert City end Aug 30–31 → Camp Hollywood starts Sep 3 (3–4 day gap)" },
 
   // ── SEPTEMBER ─────────────────────────────────────────────────────────────
-  { ids:[31,32,33],   y:2026, past:false, label:"⚔️ Lindy on the Rocks / Rhythm Shuffle end Sep 20 → Dirty Water LX ~Sep 25 (5-day gap)" },
+  { ids:[31,33],      y:2026, past:false, label:"⚔️ Lindy on the Rocks ends Sep 20 → Dirty Water LX ~Sep 25 (5-day gap)" },
 
   // ── OCTOBER ───────────────────────────────────────────────────────────────
   { ids:[49,34],      y:2026, past:false, label:"⚔️ Blues Experiment ends ~Oct 7 → Boogie by the Bay starts Oct 8 (1-day gap — back-to-back)" },
@@ -1936,8 +1960,14 @@ function TicketTracker({events, attendance}) {
 }
 
 function PastView({events, attendance, onAttendance}) {
+  const [statusFilter, setStatusFilter] = useState("all"); // "all" | ATT.v | "unset"
   const sorted = [...events].sort((a,b)=>(b.year*100+b.month)-(a.year*100+a.month)||(b.day-a.day));
   const wentCount = sorted.filter(e=>attendance[e.id]==="went").length;
+  const filtered = statusFilter==="all"
+    ? sorted
+    : statusFilter==="unset"
+      ? sorted.filter(e=>!attendance[e.id])
+      : sorted.filter(e=>attendance[e.id]===statusFilter);
   return (
     <div className="space-y-4">
       <div className="bg-gray-900/60 rounded-xl border border-gray-700 p-4">
@@ -1945,8 +1975,28 @@ function PastView({events, attendance, onAttendance}) {
         <p className="text-xs text-gray-500">Events that ended before April 4, 2026. Mark what you attended to build your history.</p>
         {wentCount>0 && <p className="text-xs text-yellow-400 mt-1 font-semibold">🎉 You went to {wentCount} event{wentCount!==1?"s":""} — nice!</p>}
       </div>
+      <div className="flex flex-wrap gap-1.5 items-center">
+        <span className="text-xs text-gray-500 font-semibold">Filter:</span>
+        <button onClick={()=>setStatusFilter("all")}
+          className={`text-xs px-2.5 py-1 rounded-full border font-semibold transition-colors ${statusFilter==="all"?"bg-indigo-700 border-indigo-500 text-white":"bg-gray-800 border-gray-700 text-gray-400 hover:text-gray-200"}`}>
+          All ({sorted.length})
+        </button>
+        {ATT.map(a=>{
+          const n = sorted.filter(e=>attendance[e.id]===a.v).length;
+          return (
+            <button key={a.v} onClick={()=>setStatusFilter(a.v)}
+              className={`text-xs px-2.5 py-1 rounded-full border font-semibold transition-colors ${statusFilter===a.v?`${a.bg} ${a.b} ${a.c}`:"bg-gray-800 border-gray-700 text-gray-500 hover:text-gray-300"}`}>
+              {a.l} ({n})
+            </button>
+          );
+        })}
+        <button onClick={()=>setStatusFilter("unset")}
+          className={`text-xs px-2.5 py-1 rounded-full border font-semibold transition-colors ${statusFilter==="unset"?"bg-gray-600 border-gray-400 text-gray-200":"bg-gray-800 border-gray-700 text-gray-500 hover:text-gray-300"}`}>
+          No Status ({sorted.filter(e=>!attendance[e.id]).length})
+        </button>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        {sorted.map(event=>{
+        {filtered.map(event=>{
           const c = SC[event.style]||SC.Multi;
           const att = attendance[event.id];
           return (
